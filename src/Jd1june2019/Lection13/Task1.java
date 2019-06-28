@@ -18,7 +18,7 @@ time=System.currentTimeMillis()-time;
         long time2=System.currentTimeMillis();
 
 
-        for(int i=0;i<20000;i++){
+        for(int i=0;i<200000;i++){
             text2=text2.append("text ");
         }
         time2=System.currentTimeMillis()-time2;
