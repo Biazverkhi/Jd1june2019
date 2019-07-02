@@ -7,6 +7,8 @@ public class Task2_Test {
 //bankomat2.addMoney(9,6,8);//заполняем банкомат сами
         boolean newInput = true;
         do {
+            Task2_printOf.printNominal(bankomat.getMoneyBankomat());//сообщаем, какие номиналы есть в наличии
+
             int money = Task2_Input.inputMoney();//вводим требемое количество денег
             boolean flag = Task2_getMoney.getMoney(money, bankomat);//основной метод, где происходят все рсчеты и возврат флага по условию задачи
             // boolean flag=Task2_getMoney.getMoney(money, bankomat2);
@@ -19,7 +21,7 @@ public class Task2_Test {
 
             Task2_printOf.printNewInput();//зацикленность, продолжить выполнение операции?
             String inputYesNo = Task2_Input.inputYesNo();
-            if (inputYesNo.equalsIgnoreCase("нет") || inputYesNo.equalsIgnoreCase("no")) {
+            if (inputYesNo.equalsIgnoreCase("нет") || inputYesNo.equalsIgnoreCase("no") || inputYesNo.equalsIgnoreCase("ytn")) {
                 newInput = false;
             }
         } while (newInput);

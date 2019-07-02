@@ -2,7 +2,7 @@ package Jd1june2019.Lection04;
 
 public class Task2_getArrayNominalAmount {
     public static int[][] getNominal(int money, Task2_Bankomat o) {//функция возвращает массив с количеством купюр по номиналу, которые надо выдать
-        int array[][] = o.getBaseBankomat();// массив[количество][номинал]/ получили базовый массив с введенным при создании объектом номиналами но без количества.
+        //  int array[][] = o.getBaseBankomat().clone();// массив[количество][номинал]/ получили базовый массив с введенным при создании объектом номиналами но без количества.
         boolean flag = true;// флаг для цикла.
         // int money = money;// вспомогательная переменная с которой выполняем все операции. Передаваемая money остается не изменной для дальнейшей проверки
         while (flag) {
@@ -23,5 +23,14 @@ public class Task2_getArrayNominalAmount {
         }
         return array;
     }
+
+    public static int[][] arrayNew(Task2_Bankomat o) {
+        int array = new int[o.getMoneyBankomat().length][o.getMoneyBankomat()[].length];
+
+
+    }
+
+
+
 }
 

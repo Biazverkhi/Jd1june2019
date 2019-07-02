@@ -25,49 +25,36 @@ public class Task2_printOf {
 public static void printFlagTrue(){
     System.out.println("Операция завершена успешно");
 }
-
-
     public static void printFlagFalse(){
         System.out.println("Операция не завершена");
     }
-
     public static void printNewInput() {
         System.out.println("Продолжить выполнение операций? (Да/Нет)\nВведите Да или Нет");
-
     }
     public static void error(){
-
-
         System.out.println("Ошибка выдачи средств");
     }
 
     public static void errorMoneyMinPrint() {
-
-
         System.out.println("Введена недопустимая сумма");
     }
-
     public static void errorMoneyMaxPrint() {
-
-
         System.out.println("Сумма превышает разовый лимит");
     }
 
-
-    public static void inputMoney(){
+    public static void inputMoney() {
 
 
         System.out.println("Введите требуемую сумму");
     }
 
-    public static void errorMoneyMoreBankomat(){
-
-
-        System.out.println("Введенная сумма превышает лимит банкомата");
+    public static void errorMoneyMoreBankomat(int sumMoneyBankomat) {
+        System.out.printf("В банкомате недостаточно средств.\n " +
+                "Текущий остаток составляет %d\n", sumMoneyBankomat);
     }
-
     public static void printNominal(int[][] array) {//печатает, какие номиналы в наличии.
-        System.out.println("К выдаче возможны следующие номиналы:");
+        System.out.println("На данный момент " +
+                "к выдаче возможны следующие номиналы:");
 
         int count = 0;
         for (int i = 0; i < array.length; i++) {
@@ -75,16 +62,25 @@ public static void printFlagTrue(){
                 continue;
             } else {
                 if (count != 0) {
-                    System.out.print(", ");
+                    System.out.println(", ");
                 }
-                System.out.print(array[i][1]);
-                count++;
+                if (array[i][0] < 6) {
+                    System.out.print(array[i][1] + " не более " + array[i][0] + " ед.");
+                    count++;
+                } else {
+                    System.out.print(array[i][1] + " >");
+                    count++;
+                }
 
             }
         }
         System.out.println(".");
 
 
+    }
+
+    public static void errorNoNominal(int nominal) {
+        System.out.printf("В банкомате недостаточно купюр следующего номинала: %d\n", nominal);
     }
 
 
