@@ -4,7 +4,7 @@ import static java.lang.Math.abs;
 
 public class Task2_Bankomat {//вопрос Юлию. Как правильно масштабировать приложение, например добавив еще пару номиналов?
     private int[][] moneyBankomat;//[количество купюр][номинал купюр]
-    //   private int[][] baseBankomat; //массив который будет использоваться в рассчетах, для исключения ввода в остальном коде номинала банкнот.
+    //  private int[][] baseBankomat; //массив который будет использоваться в рассчетах, для исключения ввода в остальном коде номинала банкнот.
     private int sumMoneyBankomat;
 
     public Task2_Bankomat(int... arg) {////конструктор с задаваемым значением.
@@ -18,11 +18,11 @@ public class Task2_Bankomat {//вопрос Юлию. Как правильно 
             for (int j = 1; j >= 0; j--) {
                 moneyBankomat[i][j] = abs(arg[h]);
                 sumMoneyBankomat += moneyBankomat[i][0] * moneyBankomat[i][1];
-                if (j == 1) {
-                    //    baseBankomat[i][j] = abs(arg[h]);//в этом массиве заполняем только номиналы, так как количество будет рассчитано далее
-                } else {
+//                if (j == 1) {
+//                    //    baseBankomat[i][j] = abs(arg[h]);//в этом массиве заполняем только номиналы, так как количество будет рассчитано далее
+//                } else {
                     //     baseBankomat[i][j] = 0;
-                }
+                // }
                 h++;
             }
         }
@@ -50,9 +50,13 @@ public class Task2_Bankomat {//вопрос Юлию. Как правильно 
 
     }//минус денег при снятии
 
-//    public int[][] getBaseBankomat() {
-    //      return baseBankomat;
-    //   }//геттер
+    public int[][] getBaseBankomat() {
+        int[][] baseBankomat = new int[moneyBankomat.length][moneyBankomat[0].length];
+        for (int i = 0; i < moneyBankomat.length; i++) {
+            baseBankomat[i][1] = moneyBankomat[i][1];
+        }
+        return baseBankomat;
+    }//геттер
 
     public int[][] getMoneyBankomat() {
         return moneyBankomat;
