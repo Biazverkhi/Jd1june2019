@@ -2,7 +2,7 @@ package Jd1june2019.Lection04;
 
 public class Task2_Test {
     public static void main(String[] args) {
-        Task2_Bankomat bankomat = new Task2_Bankomat(20, 2, 50, 5, 100, 2);// ввод массива банка банкомата с данными в следующем порядке: начиная с меньшего номинала: номинал и количество, номинал и количество и т.д.
+        Task2_Bankomat bankomat = new Task2_Bankomat(20, 5, 50, 2, 100, 2);// ввод массива банка банкомата с данными в следующем порядке: начиная с меньшего номинала: номинал и количество, номинал и количество и т.д.
         //  Task2_Bankomat bankomat2 = new Task2_Bankomat();// или вызываем конструктор и
 //bankomat2.addMoney(9,6,8);//заполняем банкомат сами
         boolean newInput = true;

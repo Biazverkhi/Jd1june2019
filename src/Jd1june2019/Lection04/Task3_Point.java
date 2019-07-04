@@ -29,9 +29,9 @@ public class Task3_Point {
         this.y = y;
     }
 
-    public double distance (Task3_Point o){
+    public double distance() {
        double distance;
-        distance=sqrt(pow(o.x,2)+pow(o.y,2));
+        distance = sqrt(pow(x, 2) + pow(y, 2));
 
     return distance;}
 }
