@@ -1,8 +1,9 @@
 package Jd1june2019.Lection07;
 
-public class Hero {
+public abstract class Hero {
     private String name;
-    private int damage = 1000;
+    private int health;
+    //   private final int damage;//Вопрос Юлию. Как красиво передать эти переменные от классов наслдеников
 
     public Hero(String name) {
         this.name = name;
@@ -12,9 +13,6 @@ public class Hero {
         return name;
     }
 
-    public void attackEnemy(Enemy enemy) {
-        System.out.println(name + " атакует!");
-        enemy.takeDamage(this.damage);
 
-    }
+    public abstract void attackEnemy(Enemy enemy);
 }
