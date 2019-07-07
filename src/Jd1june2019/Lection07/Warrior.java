@@ -1,15 +1,13 @@
 package Jd1june2019.Lection07;
 
 public class Warrior extends Hero {
-    private final int damage = 1200;
-
     @Override
-    public void attackEnemy(Enemy enemy) {
-        System.out.println(getName() + " наносит удар мечом!!!");
-        enemy.takeDamage(damage);
+    public void attackEnemy(Hero hero) {
+        System.out.print(getName() + " наносит удар мечом!!!");
+        super.attackEnemy(hero);
     }
     public Warrior(String name) {
-        super(name);
+        super(name, 7000, 900);
     }
 
 }

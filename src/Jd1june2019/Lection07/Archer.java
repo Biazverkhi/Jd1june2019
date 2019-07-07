@@ -1,20 +1,14 @@
 package Jd1june2019.Lection07;
 
 public class Archer extends Hero {
-    private final int damage = 1300;   //Вопрос Юлию. Как красиво передать эти переменные от классов наслдеников
-
-
+    //private final int damage2 = 1300;   //Вопрос Юлию. Как красиво передать эти переменные от классов наслдеников, как я или чере объявление новых переменых
     @Override
-    public void attackEnemy(Enemy enemy) {
-        System.out.println(getName() + " выпускает стрелу в цель!!!");
-        enemy.takeDamage(damage);
+    public void attackEnemy(Hero hero) {
+        System.out.print(getName() + " выпускает стрелу в цель!!!");
+        super.attackEnemy(hero);
     }
     public Archer(String name) {
-        super(name);
+        super(name, 5500, 600);
     }
-
-    public void star() {
-    }
-
 
 }

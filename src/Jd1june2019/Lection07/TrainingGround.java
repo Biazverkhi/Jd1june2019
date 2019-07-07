@@ -6,7 +6,7 @@ public class TrainingGround {
         Mage mage = new Mage("Маг");
         Warrior warrior = new Warrior("Воин");
         Archer archer = new Archer("Лучник");
-        Enemy enemy = new Enemy(5000);
+        Enemy enemy = new Enemy("ЗлыденЬ");
 
         // hero.attackEnemy(enemy);
         //  System.out.println(enemy.getHealth());
@@ -19,5 +19,6 @@ public class TrainingGround {
 
         archer.attackEnemy(enemy);
         System.out.println(enemy.getHealth());
+        mage.isAlive();
     }
 }

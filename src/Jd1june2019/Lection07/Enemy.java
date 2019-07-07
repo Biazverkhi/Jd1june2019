@@ -1,31 +1,13 @@
 package Jd1june2019.Lection07;
 
-public class Enemy implements Mortal {
-    private int health;
-
+public class Enemy extends Hero {
     @Override
-    public boolean isAlive() {
-        if (health > 0) {
-            return true;
-        } else {
-            return false;
-        }
+    public void attackEnemy(Hero hero) {
+        System.out.print(getName() + " пронзает хвостом и плюет кислотой");
+        super.attackEnemy(hero);
     }
 
-    public Enemy(int health) {
-        this.health = health;
+    public Enemy(String name) {
+        super(name, 6000, 500);
     }
-
-    public int getHealth() {
-        return health;
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
-    public void takeDamage(int damage) {
-        health -= damage;
-    }
-
 }
