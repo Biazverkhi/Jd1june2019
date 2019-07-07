@@ -5,9 +5,13 @@ public abstract class Hero implements Mortal {
     private int health;
     private int damage;
 
+    public Hero(String name, int health, int damage) {
+        this.name = name;
+        this.health = health;
+        this.damage = damage;
+    }
     @Override
     public boolean isAlive() {
-
         if (health > 0) {
             return true;
         } else {
@@ -15,11 +19,9 @@ public abstract class Hero implements Mortal {
         }
     }    //   private final int damage;//Вопрос Юлию. Как красиво передать эти переменные от классов наслдеников
 
-    public Hero(String name, int health, int damage) {
-        this.name = name;
-        this.health = health;
-        this.damage = damage;
-
+    @Override
+    public void takeDamage(int damage) {
+        health -= damage;
     }
 
     public String getName() {
@@ -34,19 +36,12 @@ public abstract class Hero implements Mortal {
         return damage;
     }
 
-    @Override
-    public void takeDamage(int damage) {
-
-        health -= damage;
-    }
-
     public void attackEnemy(Hero hero) {
-
         hero.takeDamage(getDamage());
         if (hero.isAlive()) {
-            System.out.println(" ---->  " + hero.getName() + " жив! у него еще есть здоровье: " + hero.getHealth());
+            System.out.println(" ---->  " + hero.getName() + " жив!  Его жизнь: " + hero.getHealth());
         } else {
-            System.out.println(hero.getName() + " погиб!" + hero.getHealth());
+            System.out.println(hero.getName() + " погиб!");
         }
 
 
