@@ -6,8 +6,8 @@ public class TrainingGround {
         Mage mage = new Mage("Маг");
         Warrior warrior = new Warrior("Воин");
         Archer archer = new Archer("Лучник");
-        Enemy enemy = new Enemy("ЗлыденЬ");
-
+        //  Enemy enemy = new Enemy("ЗлыденЬ");
+        Zombie enemy = new Zombie("Злыдень");
         // hero.attackEnemy(enemy);
         //  System.out.println(enemy.getHealth());
 
