@@ -1,4 +1,4 @@
-package Jd1june2019.Lection08;
+package Jd1june2019.Lection08.NoTask;
 
 public class Program {
 
