@@ -7,7 +7,7 @@ import static java.lang.Math.*;
 @Getter
 @Setter
 
-public abstract class Shape {
+public abstract class Shape implements Solverable {
 
     private double area;
     private double perimetr;
@@ -52,5 +52,12 @@ public abstract class Shape {
 
     }
 
+    public boolean areaCompare(Shape shape) {
+        boolean flag = false;
+        if (this.getArea() == shape.getArea()) {
+            flag = true;
+        }
+        return flag;
+    }
 
 }

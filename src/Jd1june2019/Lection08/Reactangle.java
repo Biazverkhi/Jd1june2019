@@ -1,27 +1,19 @@
 package Jd1june2019.Lection08;
 
-import Jd1june2019.Lection08.Shape.Point.*;
+import Jd1june2019.Lection08.Shape.Point.Line;
+import lombok.Getter;
+import lombok.Setter;
 
-
+@Getter
+@Setter
 public class Reactangle extends Quadangle implements Diagonable {//класс описывает прямоугольник.
-    private double distance;
+    private final String name = "Прямоугольник";
+    private double diagonale;
 
-    public double getDistance() {
-        return distance;
-    }
-
-    public void setDistance(double distance) {
-        this.distance = distance;
-    }
-
-//    public Reactangle(Point point1, Point point2, Point point3, Point point4) {
-//        super(point1, point2, point3, point4);
-//    }
 
     public Reactangle(Point point1, Point point3) {
         super(point1, new Point(point1.getX(), point3.getY()), point3, new Point(point3.getX(), point1.getY()));
-        distance=diagonal();
-
+        diagonal();
     }
 
     @Override
@@ -45,15 +37,14 @@ public class Reactangle extends Quadangle implements Diagonable {//класс о
     }
     @Override
     public String toString() {
-        System.out.println("прямоугольник");
+        System.out.println(name);
         return getClass().getName();
     }
 
     @Override
-    public double diagonal() {
+    public void diagonal() {
       double diagonal;
         diagonal= new Line(getPoint1(), getPoint3()).dinstanceLine();
-setDistance(diagonal);
-        return diagonal;
+        setDiagonale(diagonal);
     }
 }

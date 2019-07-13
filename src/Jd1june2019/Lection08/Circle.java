@@ -8,17 +8,20 @@ import static java.lang.Math.pow;
 
 @Getter
 @Setter
-public class Circle extends Shape implements Solverable {
+public class Circle extends Shape  {
     private int radius;
     private Point point;
+    private final String name = "Окружность";
+
 
     public Circle(Point point, int radius) {
         this.point = point;
         this.radius = radius;
         area();
         perimetr();
-    }
+        System.out.println(toString());
 
+    }
 
     @Override
     public void area() {
@@ -33,7 +36,7 @@ public class Circle extends Shape implements Solverable {
     }
     @Override
     public String toString() {
-        System.out.println("окружность");
+        System.out.println(name);
         return getClass().getName();
     }
 

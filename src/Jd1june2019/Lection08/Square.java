@@ -1,12 +1,13 @@
 package Jd1june2019.Lection08;
 
 public class Square extends Reactangle {
+    private final String name = "Квадрат";
 
 
-    public Square(Point point1, int distance)//квадрат, задаем по точке и длине стороны
+    public Square(int x1, int y1, int distance)//квадрат, задаем по точке и длине стороны
     {
 
-        super(point1, new Point(point1.getX()+distance,point1.getY()+distance));//почему ему надо вызывать некий дефолтовый конструктор родительского класса?
+        super(new Point(x1,y1), new Point(x1+distance,y1+distance));//почему ему надо вызывать некий дефолтовый конструктор родительского класса?
 
     }
 
@@ -29,7 +30,7 @@ public class Square extends Reactangle {
     }
     @Override
     public String toString() {
-        System.out.println("квадрат");
+        System.out.println(name);
         return getClass().getName();
     }
 }
