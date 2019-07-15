@@ -7,7 +7,7 @@ public class Square extends Reactangle {
     public Square(int x1, int y1, int distance)//квадрат, задаем по точке и длине стороны
     {
 
-        super(new Point(x1,y1), new Point(x1+distance,y1+distance));//почему ему надо вызывать некий дефолтовый конструктор родительского класса?
+        super(new Point(x1,y1), new Point(x1+distance,y1+distance));
 
     }
 

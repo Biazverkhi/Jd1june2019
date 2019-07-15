@@ -15,7 +15,7 @@ public class Test {
         Shape sh=new Square(2,2,5);
         System.out.println(sc.areaCompare(sh));
         System.out.println(ShapeUtils.isRectangle(rec));
-        System.out.println(ShapeUtils.isRectangle(cr));
+        System.out.println(ShapeUtils.isTriangle(tr));
 
     }
 }
