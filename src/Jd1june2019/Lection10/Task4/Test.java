@@ -8,9 +8,9 @@ public class Test {
 
 
     public static void main(String[] args) throws IOException {
-        Stack stack = new Stack();//этомой стек а не java.util
+        Stack stack = new Stack();//это мой стек а не java.util
         stack.setMaxSize(10);//указываю размер стека
-        stack.addStackValue(5);//заношу цифру. Демонтрация метода.
+        //stack.addStackValue(5);//заношу цифру. Демонтрация метода.
 stack=Input.input(stack);//заполняю стек цифрами
         //System.out.println(stack.getStackValue());//тут можно просто извлечь цифру из стека
 Iterator iterator =stack.getStack().iterator();//тут вывожу весь стек в обратном порядке
@@ -19,13 +19,6 @@ Iterator iterator =stack.getStack().iterator();//тут вывожу весь с
             System.out.print(iterator.next());
         }
 
-
-
-
-
-
-
-
-
+        System.out.println("stop debug");
     }
 }

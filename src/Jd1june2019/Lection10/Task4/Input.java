@@ -14,8 +14,6 @@ public abstract class Input {
         ) {
             stack.addStackValue(Integer.parseInt(x));
         }
-
-
         return stack;
     }
 

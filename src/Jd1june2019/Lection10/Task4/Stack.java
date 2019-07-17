@@ -34,7 +34,7 @@ public class Stack {
         }
     }
 
-    public int getStackValue() {
+    public int getStackValue() {//извлечь элемент
         int stackValue;
         stackValue = stack.poll();
 

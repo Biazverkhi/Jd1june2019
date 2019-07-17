@@ -3,7 +3,7 @@ package Jd1june2019.Lection02;
 public class Task4 extends Task3 {
 
     public static void main(String[] args) {
-        //Task3 task4 = new Task4();
+        //Task3 task4 = new Test();
         int day = input();
         int month = input();
         int year = input();
