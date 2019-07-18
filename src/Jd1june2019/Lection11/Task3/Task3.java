@@ -16,6 +16,7 @@ Map<Integer, Integer> map=createMap(input);
         System.out.println(map1);
 
 map=sumChlen(map,map1);
+
         System.out.println("сумма многочлена");
         System.out.println(map);
         printChlen(map);
