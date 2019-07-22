@@ -8,7 +8,7 @@ import java.nio.charset.Charset;
 public class Task1 {
 
     public static void main(String[] args) throws IOException {
-        File file =new File("C:"+File.separator+"Users"+File.separator+"L"+File.separator+"Downloads"+File.separator+"myfile.txt");
+        File file = new File("C:" + File.separator + "Users" + File.separator + "L" + File.separator + "Downloads" + File.separator + "myfile.txt");
         //file.createNewFile();
         FileReader read = new FileReader(file, Charset.forName("Cp1251"));//ура !!!!!!!
         int ch;
@@ -21,4 +21,5 @@ public class Task1 {
             System.out.println(buffer);
         }
 
-    }}
+    }
+}

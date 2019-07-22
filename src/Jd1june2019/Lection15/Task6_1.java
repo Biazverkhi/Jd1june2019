@@ -5,28 +5,32 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public abstract class Task6_1 {
-    public static int positionDirectory(File dir){
-    int positionDerictory;
+    public static int positionDirectory(File dir) {
+        int positionDerictory;
 
-    Pattern pt = Pattern.compile("[\\\\]*");
-    Matcher mch=pt.matcher(dir.getAbsolutePath());
-    String root="";
-     while(mch.find()){root+=mch.group();}
-positionDerictory=root.length();
+        Pattern pt = Pattern.compile("[\\\\]*");
+        Matcher mch = pt.matcher(dir.getAbsolutePath());
+        String root = "";
+        while (mch.find()) {
+            root += mch.group();
+        }
+        positionDerictory = root.length();
 
-return positionDerictory;}
-public static String tabulat(int positionRootDirectory, int positionDirektory){
+        return positionDerictory;
+    }
 
-        int tab=positionDirektory-positionRootDirectory;
+    public static String tabulat(int positionRootDirectory, int positionDirektory) {
 
-        String tabulat="";
-        for (int i=0;i<tab;i++)
-        {tabulat+="\t";}
+        int tab = positionDirektory - positionRootDirectory;
+
+        String tabulat = "";
+        for (int i = 0; i < tab; i++) {
+            tabulat += "\t";
+        }
 
 
-
-return tabulat;}
-
+        return tabulat;
+    }
 
 
 }
