@@ -7,9 +7,7 @@ import static java.lang.Math.random;
 public class Task5 {
     public static void main(String[] args) throws FileNotFoundException {
         File file = new File("C:" + File.separator + "Users" + File.separator + "L" + File.separator + "Downloads" + File.separator + "MyFile.txt");
-        FileOutputStream writer = null;//запись байтами работает
-        writer = new FileOutputStream(file);
-        DataOutputStream outputStream = new DataOutputStream(writer);
+        DataOutputStream outputStream = new DataOutputStream(new FileOutputStream(file));
         for (int i = 0; i < 20; i++) {
             int num = ((int) (random() * 255 + 255));
             System.out.printf("%3d ", num);
@@ -19,9 +17,12 @@ public class Task5 {
                 e.printStackTrace();
             }
         }
-        FileInputStream reader = null;
-        reader = new FileInputStream(file);
-        DataInputStream inputStream = new DataInputStream(reader);
+        try {
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        DataInputStream inputStream = new DataInputStream(new FileInputStream(file));
         System.out.println();
         int num;
         int sum = 0;
@@ -36,5 +37,10 @@ public class Task5 {
             }
         }
         System.out.println("\n" + sum / 20);
+        try {
+            inputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
