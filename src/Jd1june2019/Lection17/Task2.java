@@ -5,10 +5,10 @@ import java.util.regex.Pattern;
 
 public class Task2 {
     public static void main(String[] args) {
-        String text = "";
-        Pattern pat = Pattern.compile("");
+        String text = "fdhgdfjgkjhg0x566564fffdsafsf 0X2356def";
+        Pattern pat = Pattern.compile("(0[Xx][0-9a-fA-F]{1,8})");
         Matcher math = pat.matcher(text);
-        if (math.find()) {
+        while (math.find()) {
             System.out.println(math.group());
 
         }
