@@ -14,6 +14,6 @@ public class Task4 {
         }
         System.out.println(buff);
         //2 вариант решения: (но он с 9 Java, поэтому я решил сделать то что выше^)
-        // System.out.println(matcher.replaceAll(matchResult -> matcher.group(2) + "(" + matcher.group(3) + ")" + matcher.group(4) + "-" + matcher.group(5) + "-" + matcher.group(6)));
+        System.out.println(matcher.replaceAll(matchResult -> matcher.group(2) + "(" + matcher.group(3) + ")" + matcher.group(4) + "-" + matcher.group(5) + "-" + matcher.group(6)));
     }
 }
