@@ -13,8 +13,4 @@ public class Task1 {
                 .mapToDouble(element -> element)
                 .average();
     }
-
-
-
-
 }
