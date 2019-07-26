@@ -17,6 +17,7 @@ public class Task5 {
                 "255.0.0.1\n" +
                 "255.55.255.255";
         Pattern pat = Pattern.compile("(?m)^((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)$");
+        //(?m)^((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)(\.(?!$)|$)){4}$//компакт вариант. Подсказали в группе
         Matcher math = pat.matcher(text);
         while (math.find()) {
             System.out.println(math.group() + " Этой реальный IP");
