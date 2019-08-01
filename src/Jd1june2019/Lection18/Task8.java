@@ -2,7 +2,6 @@ package Jd1june2019.Lection18;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import java.time.LocalDate;
 import java.time.temporal.Temporal;
 import java.time.temporal.TemporalAdjuster;
@@ -19,7 +18,7 @@ public class Task8 implements TemporalAdjuster {
     }
 
     public static void main(String[] args) {
-        Task8 objectData = new Task8();
+        Task8 objectData = new Task8();//я тут везде вывожу по 2 даты
         System.out.println("Дата без изменений " + objectData.getDate());
         System.out.println("Дата без изменений " + objectData.getDat());
 
