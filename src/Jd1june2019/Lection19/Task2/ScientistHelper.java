@@ -1,43 +1,63 @@
 package Jd1june2019.Lection19.Task2;
 
 
+import lombok.Getter;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import static java.lang.Math.random;
+@Getter
 public class ScientistHelper extends Thread {
     public Map<Item, Integer> itemsScientistHelper;
     private GarbageFactory garbageFactory;
-    private Scientist scientist;
 
-    public ScientistHelper(GarbageFactory garbageFactory, Scientist scientist) {
+    public ScientistHelper(GarbageFactory garbageFactory) {
         this.garbageFactory = garbageFactory;
-        this.scientist = scientist;
+        itemsScientistHelper = new HashMap<>();
     }
     @Override
     public void run() {
         while (garbageFactory.isAlive()) {
-            if (garbageFactory.getFlagFactory()){
-               itemsScientistHelper = new HashMap<>();
-               itemsScientistHelper = garbageFactory.getItemGarbageFactory();//помошник пошел на свалку за деталям
-              // System.out.printf("Помошник нашел %d деталей\n", itemsScientistHelper.entrySet().stream().collect(Collectors.summingInt(v->v.getValue())));
-               garbageFactory.clearGarbageFactory();//удалил забранные детали из мап фабрики
-              addItemsForRobots();//помошник вручает деталиученому
-               itemsScientistHelper.clear();}
-
-        }
-    }
-
-    public void addItemsForRobots() {
-        for (Map.Entry<Item, Integer> item : itemsScientistHelper.entrySet()) {
-            if (scientist.getItemsForRobots().containsKey(item.getKey())) {
-                scientist.getItemsForRobots().put(item.getKey(), scientist.getItemsForRobots().get(item.getKey()) + item.getValue());
-            } else {
-                scientist.getItemsForRobots().put(item.getKey(), item.getValue());
+            if (garbageFactory.isFlagPutItemsOnGarbageFactory()) {
+                   getItemsFromGarbareFactory();
+                 System.out.printf("Помошник нашел %d деталей\n", itemsScientistHelper.entrySet().stream().collect(Collectors.summingInt(v->v.getValue())));
+                //  addItemsForRobots();//помошник вручает деталиученому
             }
         }
-        System.out.printf("Ученый имеет %d деталей\n", scientist.getItemsForRobots().entrySet().stream().collect(Collectors.summingInt(value -> value.getValue())));
-    }//помошник отдал детали ученому. Ученый их добавляет к своей мастерской
+
+    }
+
+    public void getItemsFromGarbareFactory() {
+        int numberItemSH = (int) (random() * 4 + 1);//количество деталй для помошника
+        Item[] itemsArray = Item.values();
+        int numberItemGF = garbageFactory.getItemsGarbageFactory().entrySet().stream().collect(Collectors.summingInt(v -> v.getValue()));//количество деталей на фабрике
+        System.out.println("деталей на фабрике до помошника "+numberItemGF);
+        int numberItem = numberItemSH <= numberItemGF ? numberItemSH : numberItemGF;//если на фабрике деталей меньше или нет, то помошник колько есть и забирает
+        System.out.println("помошник взял"+numberItem);
+        for (int i = 0; i < numberItem; i++) {//забираем детали из фабрики
+            int randPosItem = (int) (random() * 9);
+            if (garbageFactory.getItemsGarbageFactory().get(randPosItem) != 0) {
+                garbageFactory.getItemsGarbageFactory().put(itemsArray[randPosItem], garbageFactory.getItemsGarbageFactory().get(itemsArray[randPosItem])-1);//удаляем из фабрики деталь, которую заносим к помошнику
+                if (itemsScientistHelper.containsKey(randPosItem)) {
+                    itemsScientistHelper.put(itemsArray[randPosItem], itemsScientistHelper.get(randPosItem) + 1);
+                } else {
+                    itemsScientistHelper.put(itemsArray[randPosItem], 1);
+                }
+            } else {
+                i--;
+                continue;
+
+            }
+        }
+        garbageFactory.setFlagPutItemsOnGarbageFactory(false);
+        System.out.println("детали на фабрике после помошника "+garbageFactory.getItemsGarbageFactory().entrySet().stream().collect(Collectors.summingInt(map -> map.getValue())));
+        System.out.println("детали помошника "+itemsScientistHelper.entrySet().stream().collect(Collectors.summingInt(map -> map.getValue())));
+
+
+
+    }
 
 
 

@@ -10,14 +10,14 @@ import java.util.stream.Collectors;
 public class Scientist {
     private Map<Item, Integer> itemsForRobots;
     private int countRobots;
+    private ScientistHelper scientistHelper;
 
-    public Scientist() {
+    public Scientist(ScientistHelper scientistHelper) {
         int countRobots = 0;
-        itemsForRobots = new HashMap<>();
+        itemsForRobots =scientistHelper.getItemsScientistHelper();
+        this.scientistHelper=scientistHelper;
     }
-//    public int getCountRobots() {
-//        return countRobots;
-//    }
+
     public void buildRobot() {//сборка одного робота если есть полный комплект деталей
             countRobots += 1;
             System.out.println("Ученый построил 1 робота");

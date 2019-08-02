@@ -4,15 +4,16 @@ public class Test {
     public static void main(String[] args) throws InterruptedException {
 
         GarbageFactory garbageFactory = new GarbageFactory();
-        Scientist scientist = new Scientist();
-        ScientistHelper scientistHelper = new ScientistHelper(garbageFactory, scientist);
+        ScientistHelper scientistHelper = new ScientistHelper(garbageFactory);
+
+        Scientist scientist = new Scientist(scientistHelper);
         garbageFactory.start();
         scientistHelper.start();
         while (scientist.yesAllItemsForOneRobot()) {
             scientist.buildRobot();
 
-            scientistHelper.join();
-        garbageFactory.join();
+//            scientistHelper.join();
+//        garbageFactory.join();
         }
 
             System.out.printf("Ученый построил %d роботов\n", scientist.getCountRobots());
