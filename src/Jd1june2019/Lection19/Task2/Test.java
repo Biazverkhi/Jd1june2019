@@ -9,11 +9,9 @@ public class Test {
         Scientist scientist = new Scientist(scientistHelper);
         garbageFactory.start();
         scientistHelper.start();
-        while (scientist.yesAllItemsForOneRobot()) {
-            scientist.buildRobot();
+        while (scientistHelper.isAlive()) {
+            scientist.stgbuildRobot();
 
-//            scientistHelper.join();
-//        garbageFactory.join();
         }
 
             System.out.printf("Ученый построил %d роботов\n", scientist.getCountRobots());

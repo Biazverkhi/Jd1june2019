@@ -18,15 +18,16 @@ public class Scientist {
         this.scientistHelper=scientistHelper;
     }
 
-    public void buildRobot() {//сборка одного робота если есть полный комплект деталей
+    public  void buildRobot() {//сборка одного робота если есть полный комплект деталей
+           if (yesAllItemsForOneRobot()){
             countRobots += 1;
             System.out.println("Ученый построил 1 робота");
             itemsForRobots.entrySet().stream().forEach(v -> v.setValue(v.getValue() - 1));
-    }
+    }}
 
-    public boolean yesAllItemsForOneRobot() {//проверка комплектности деталей
+    public  boolean yesAllItemsForOneRobot() {//проверка комплектности деталей
 
-        return itemsForRobots.entrySet().stream().filter(v -> v.getValue() != 0).count() == 9;
+        return (!itemsForRobots.containsValue(0))&&itemsForRobots.size()==9;
     }
 
 

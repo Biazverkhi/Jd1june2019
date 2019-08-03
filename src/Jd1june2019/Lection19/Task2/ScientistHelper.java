@@ -22,8 +22,8 @@ public class ScientistHelper extends Thread {
         while (garbageFactory.isAlive()) {
             if (garbageFactory.isFlagPutItemsOnGarbageFactory()) {
                    getItemsFromGarbareFactory();
-                 System.out.printf("Помошник нашел %d деталей\n", itemsScientistHelper.entrySet().stream().collect(Collectors.summingInt(v->v.getValue())));
-                //  addItemsForRobots();//помошник вручает деталиученому
+                 System.out.printf("Всего у помошника: %d деталей, MIN_POS: %d, разбивка по элементам:\n", itemsScientistHelper.entrySet().stream().collect(Collectors.summingInt(v->v.getValue())), itemsScientistHelper.entrySet().stream().mapToInt(v->v.getValue()).min().getAsInt());
+                System.out.println(itemsScientistHelper.entrySet().stream().map(map -> map.getKey() + "=" + map.getValue()).collect(Collectors.joining(" | ")));
             }
         }
 
@@ -33,30 +33,24 @@ public class ScientistHelper extends Thread {
         int numberItemSH = (int) (random() * 4 + 1);//количество деталй для помошника
         Item[] itemsArray = Item.values();
         int numberItemGF = garbageFactory.getItemsGarbageFactory().entrySet().stream().collect(Collectors.summingInt(v -> v.getValue()));//количество деталей на фабрике
-        System.out.println("деталей на фабрике до помошника "+numberItemGF);
         int numberItem = numberItemSH <= numberItemGF ? numberItemSH : numberItemGF;//если на фабрике деталей меньше или нет, то помошник колько есть и забирает
-        System.out.println("помошник взял"+numberItem);
+       // System.out.println(Thread.currentThread().getName());
+
         for (int i = 0; i < numberItem; i++) {//забираем детали из фабрики
             int randPosItem = (int) (random() * 9);
-            if (garbageFactory.getItemsGarbageFactory().get(randPosItem) != 0) {
+            if (garbageFactory.getItemsGarbageFactory().get(itemsArray[randPosItem]) !=null&&garbageFactory.getItemsGarbageFactory().get(itemsArray[randPosItem]) != 0) {
                 garbageFactory.getItemsGarbageFactory().put(itemsArray[randPosItem], garbageFactory.getItemsGarbageFactory().get(itemsArray[randPosItem])-1);//удаляем из фабрики деталь, которую заносим к помошнику
-                if (itemsScientistHelper.containsKey(randPosItem)) {
-                    itemsScientistHelper.put(itemsArray[randPosItem], itemsScientistHelper.get(randPosItem) + 1);
+                if (itemsScientistHelper.containsKey(itemsArray[randPosItem])) {
+                    itemsScientistHelper.put(itemsArray[randPosItem], itemsScientistHelper.get(itemsArray[randPosItem]) + 1);
                 } else {
                     itemsScientistHelper.put(itemsArray[randPosItem], 1);
                 }
             } else {
                 i--;
                 continue;
-
             }
         }
         garbageFactory.setFlagPutItemsOnGarbageFactory(false);
-        System.out.println("детали на фабрике после помошника "+garbageFactory.getItemsGarbageFactory().entrySet().stream().collect(Collectors.summingInt(map -> map.getValue())));
-        System.out.println("детали помошника "+itemsScientistHelper.entrySet().stream().collect(Collectors.summingInt(map -> map.getValue())));
-
-
-
     }
 
 
