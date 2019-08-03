@@ -29,7 +29,7 @@ public class ScientistHelper extends Thread {
 
     }
 
-    public void getItemsFromGarbareFactory() {
+    public synchronized void getItemsFromGarbareFactory() {
         int numberItemSH = (int) (random() * 4 + 1);//количество деталй для помошника
         Item[] itemsArray = Item.values();
         int numberItemGF = garbageFactory.getItemsGarbageFactory().entrySet().stream().collect(Collectors.summingInt(v -> v.getValue()));//количество деталей на фабрике

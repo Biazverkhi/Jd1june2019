@@ -10,7 +10,7 @@ public class Test {
         garbageFactory.start();
         scientistHelper.start();
         while (scientistHelper.isAlive()) {
-            scientist.stgbuildRobot();
+            scientist.buildRobot();
 
         }
 
